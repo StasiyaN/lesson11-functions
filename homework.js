@@ -1,7 +1,8 @@
 //1
 function isPalindrome(word) {
-    const reversedWord = word.split('').reverse().join('');
-    return word === reversedWord
+    const wordToLowerCase = word.toLowerCase();
+    const reversedWord = wordToLowerCase.split('').reverse().join('');
+    return wordToLowerCase === reversedWord
 }
 
 console.log(isPalindrome('казак'))
@@ -18,22 +19,25 @@ function shortestWord (phrase) {
             shortestWord = word;
         }
     }
-    console.log(shortestWord)
+    return(shortestWord)
 }
 
-shortestWord('My cat is cute')
-shortestWord('Banana is yellow')
+console.log(shortestWord('My cat is cute'))
+console.log(shortestWord('Banana is yellow'))
 
 //3
 function createPhoneNumber(input) {
-    // Преобразуем вход в строку и удалим всё, кроме цифр
     const digits = String(input).replace(/\D/g, '');
 
-    const part1 = digits.slice(0, 3); // код
-    const part2 = digits.slice(3, 6); // первые 3 цифры
-    const part3 = digits.slice(6);    // последние 3 цифры
+    if (digits.length !== 10) {
+        return 'Enter correct phone number';
+    }
 
-    return `8 (${part1}) ${part2}-${part3}`;
+    const part1 = digits.slice(1, 4); // код
+    const part2 = digits.slice(4, 7); // первые 3 цифры
+    const part3 = digits.slice(7);    // последние 3 цифры
+
+    return `${digits[0]} (${part1}) ${part2}-${part3}`;
 }
 
 //4
