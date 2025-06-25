@@ -33,11 +33,11 @@ function createPhoneNumber(input) {
         return 'Enter correct phone number';
     }
 
-    const part1 = digits.slice(1, 4); // код
-    const part2 = digits.slice(4, 7); // первые 3 цифры
-    const part3 = digits.slice(7);    // последние 3 цифры
+    const part1 = digits.slice(0, 3); // код — первые 3 цифры
+    const part2 = digits.slice(3, 6); // первые 3 цифры
+    const part3 = digits.slice(6);    // последние 4 цифры
 
-    return `${digits[0]} (${part1}) ${part2}-${part3}`;
+    return `8 (${part1}) ${part2}-${part3}`;
 }
 
 //4
